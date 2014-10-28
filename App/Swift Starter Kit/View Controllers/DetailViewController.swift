@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         
         let viewWidth = CGRectGetWidth(self.view.frame)
         let viewHeight = CGRectGetHeight(self.view.frame)
-        var detailLabel = UILabel(frame: CGRectMake(0, 0, viewWidth, viewHeight/4))
+        var detailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/4))
         detailLabel.textAlignment = NSTextAlignment.Center
         detailLabel.center = self.view.center
         detailLabel.text = detailText

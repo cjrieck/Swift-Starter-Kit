@@ -11,13 +11,13 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate {
     
     weak var classTableView: UITableView!
-    let classTableViewDataSource: SKViewControllerDataSource!
+    let classTableViewDataSource: ViewControllerDataSource!
     
     init(title: String!) {
         super.init(nibName: nil, bundle: nil)
         self.title = title
         
-        classTableViewDataSource = SKViewControllerDataSource()
+        classTableViewDataSource = ViewControllerDataSource()
     }
 
     required init(coder aDecoder: NSCoder) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SKViewControllerDataSource: NSObject, UITableViewDataSource {
+public class ViewControllerDataSource: NSObject, UITableViewDataSource {
     public weak var dataTableView: UITableView!
     private let dataArray: NSMutableArray!
     
@@ -17,7 +17,7 @@ public class SKViewControllerDataSource: NSObject, UITableViewDataSource {
 
         // initialization of data
         dataArray = NSMutableArray()
-        for i in 0...20 {
+        for i in 0..<20 {
             dataArray.addObject("Cell \(i)")
         }
     }
