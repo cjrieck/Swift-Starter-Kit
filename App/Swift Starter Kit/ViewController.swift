@@ -55,7 +55,9 @@ class ViewController: UIViewController, UITableViewDelegate {
     // MARK: UITableView Delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("selected row \(indexPath.row)")
+        var detailVC = DetailViewController(details: classTableViewDataSource.dataForIndexPath(indexPath))
+        self.navigationController!.pushViewController(detailVC, animated: true)
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }

@@ -13,6 +13,7 @@
 		36F427FE19FFC9DC00B33701 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F427FC19FFC9DC00B33701 /* LaunchScreen.xib */; };
 		36F4280A19FFC9DC00B33701 /* Swift_Starter_KitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F4280919FFC9DC00B33701 /* Swift_Starter_KitTests.swift */; };
 		36F428141A000C4A00B33701 /* SKViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F428131A000C4A00B33701 /* SKViewControllerDataSource.swift */; };
+		36F428161A00129300B33701 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F428151A00129300B33701 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		36F4280819FFC9DC00B33701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F4280919FFC9DC00B33701 /* Swift_Starter_KitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Starter_KitTests.swift; sourceTree = "<group>"; };
 		36F428131A000C4A00B33701 /* SKViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKViewControllerDataSource.swift; sourceTree = "<group>"; };
+		36F428151A00129300B33701 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				36F427FC19FFC9DC00B33701 /* LaunchScreen.xib */,
 				36F427F119FFC9DC00B33701 /* Supporting Files */,
 				36F428131A000C4A00B33701 /* SKViewControllerDataSource.swift */,
+				36F428151A00129300B33701 /* DetailViewController.swift */,
 			);
 			path = "Swift Starter Kit";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				36F428141A000C4A00B33701 /* SKViewControllerDataSource.swift in Sources */,
 				36F427F619FFC9DC00B33701 /* ViewController.swift in Sources */,
 				36F427F419FFC9DC00B33701 /* AppDelegate.swift in Sources */,
+				36F428161A00129300B33701 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Clayton Rieck. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 public class SKViewControllerDataSource: NSObject, UITableViewDataSource {
@@ -19,8 +18,12 @@ public class SKViewControllerDataSource: NSObject, UITableViewDataSource {
         // initialization of data
         dataArray = NSMutableArray()
         for i in 0...20 {
-            dataArray.addObject(i)
+            dataArray.addObject("Cell \(i)")
         }
+    }
+    
+    public func dataForIndexPath(indexPath: NSIndexPath) -> String {
+        return dataArray.objectAtIndex(indexPath.row) as NSString
     }
     
     // MARK: TableView datasource methods
@@ -35,7 +38,7 @@ public class SKViewControllerDataSource: NSObject, UITableViewDataSource {
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        cell.textLabel.text = "Cell \(dataArray.objectAtIndex(indexPath.row))"
+        cell.textLabel.text = dataArray.objectAtIndex(indexPath.row) as NSString
         return cell;
     }
 }
