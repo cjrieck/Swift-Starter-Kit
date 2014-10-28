@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate {
     
     weak var classTableView: UITableView!
+    let classTableViewDataSource: SKViewControllerDataSource!
     
     init(title: String!) {
         super.init(nibName: nil, bundle: nil)
         self.title = title
+        
+        classTableViewDataSource = SKViewControllerDataSource()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -26,7 +29,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.view.backgroundColor = UIColor.whiteColor()
         self.view.autoresizesSubviews = true
         
-        // add code during view init
         let viewHeight = CGRectGetHeight(self.view.frame)
         let viewWidth = CGRectGetWidth(self.view.frame)
         
@@ -34,11 +36,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         classTableView.setTranslatesAutoresizingMaskIntoConstraints(false)
         classTableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         classTableView.delegate = self
-        classTableView.dataSource = self
+        classTableViewDataSource.dataTableView = classTableView
+        classTableView.dataSource = classTableViewDataSource
         self.view.addSubview(classTableView)
         self.classTableView = classTableView
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editTextField")
     }
     
     override func viewDidLoad() {
@@ -55,22 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("selected row \(indexPath.row)")
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10 // replace with array length
-    }
-    
-    // MARK: UITableView Datasource
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        cell.textLabel.text = "Cell \(indexPath.row)"
-        return cell
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
 
