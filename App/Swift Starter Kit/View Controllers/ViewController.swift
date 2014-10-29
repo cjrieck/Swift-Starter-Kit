@@ -14,12 +14,13 @@ class ViewController: UIViewController, UITableViewDelegate {
     let classTableViewDataSource: ViewControllerDataSource!
     
     init(title: String!) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: nil) // must call this since it is the designated initializer
         self.title = title
         
-        classTableViewDataSource = ViewControllerDataSource()
+        self.classTableViewDataSource = ViewControllerDataSource()
     }
-
+    
+    // Required my Swift in custom initializations. This is the default implementation
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -42,20 +43,21 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.classTableView = classTableView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // Comment out these methods if necessary. For code cleanliness, we omit code we do not need/use
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        // Do any additional setup after loading the view, typically from a nib.
+//    }
+//
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
     
     // MARK: UITableView Delegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var detailVC = DetailViewController(details: classTableViewDataSource.dataForIndexPath(indexPath))
+        var detailVC = DetailViewController(selectedPerson: classTableViewDataSource.dataForIndexPath(indexPath))
         self.navigationController!.pushViewController(detailVC, animated: true)
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)

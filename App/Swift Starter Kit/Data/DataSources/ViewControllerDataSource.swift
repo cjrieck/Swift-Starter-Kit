@@ -18,12 +18,13 @@ public class ViewControllerDataSource: NSObject, UITableViewDataSource {
         // initialization of data
         dataArray = NSMutableArray()
         for i in 0..<20 {
-            dataArray.addObject("Cell \(i)")
+            var person = PersonModel(firstName: String(i), lastName: String(i*2), age: 14)
+            dataArray.addObject(person)
         }
     }
     
-    public func dataForIndexPath(indexPath: NSIndexPath) -> String {
-        return dataArray.objectAtIndex(indexPath.row) as NSString
+    public func dataForIndexPath(indexPath: NSIndexPath) -> PersonModel! {
+        return dataArray.objectAtIndex(indexPath.row) as PersonModel
     }
     
     // MARK: TableView datasource methods
@@ -38,7 +39,8 @@ public class ViewControllerDataSource: NSObject, UITableViewDataSource {
     
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        cell.textLabel.text = dataArray.objectAtIndex(indexPath.row) as NSString
+        let person = dataArray.objectAtIndex(indexPath.row) as PersonModel
+        cell.textLabel.text = person.firstName
         return cell;
     }
 }

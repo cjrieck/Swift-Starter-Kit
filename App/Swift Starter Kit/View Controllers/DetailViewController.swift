@@ -9,12 +9,12 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    let detailText: String!
+    let person: PersonModel!
     
-    init(details: String!) {
+    init(selectedPerson person: PersonModel!) {
         super.init(nibName: nil, bundle: nil)
         // Do any custom initialization here
-        self.detailText = details
+        self.person = person
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -31,7 +31,11 @@ class DetailViewController: UIViewController {
         var detailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/4))
         detailLabel.textAlignment = NSTextAlignment.Center
         detailLabel.center = self.view.center
-        detailLabel.text = detailText
+        var personDescription = "\(self.person.firstName) \(self.person.lastName)"
+        if let personAge = self.person.age {
+            personDescription += " \(personAge)"
+        }
+        detailLabel.text = personDescription
         self.view.addSubview(detailLabel)
     }
 }
