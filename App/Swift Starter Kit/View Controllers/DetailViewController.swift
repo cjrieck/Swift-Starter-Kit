@@ -31,9 +31,9 @@ class DetailViewController: UIViewController {
         var detailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/4))
         detailLabel.textAlignment = NSTextAlignment.Center
         detailLabel.center = self.view.center
-        var personDescription = "\(self.person.firstName) \(self.person.lastName)"
+        var personDescription = "First: \(self.person.firstName) Last: \(self.person.lastName)"
         if let personAge = self.person.age {
-            personDescription += " \(personAge)"
+            personDescription += " Age: \(personAge)"
         }
         detailLabel.text = personDescription
         self.view.addSubview(detailLabel)
