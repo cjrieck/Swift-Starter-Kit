@@ -55,6 +55,7 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
         var cell = UITableViewCell()
         let person = dataArray.objectAtIndex(indexPath.row) as PersonModel // type cast since objectAtIndex returns type 'AnyObject'
         cell.textLabel.text = person.firstName
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell;
     }
     
