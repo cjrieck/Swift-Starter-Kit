@@ -8,6 +8,7 @@
 
 import Foundation
 
+// simple enumeration with type WalkingDirection
 enum WalkingDirection {
     case Forwards
     case Backwards
@@ -15,7 +16,7 @@ enum WalkingDirection {
     case Right
 }
 
-public class PersonModel {
+class PersonModel {
     
     var firstName: String!
     var lastName: String!
@@ -26,7 +27,7 @@ public class PersonModel {
         self.lastName = lastName
         
         // performs a check if age has a value then if it does unwrap that and store in givenAge
-        if let givenAge = age {
+        if let givenAge = age { // proper way to unwrap an optional if unsure if it's nil or has a value
             self.age = givenAge
         }
     }
@@ -50,6 +51,7 @@ public class PersonModel {
             break
             
         default:
+            // shouldn't ever get in here since function takes in a WalkingDirection
             println("Something went wrong...")
             break
         }
