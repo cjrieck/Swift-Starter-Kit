@@ -31,6 +31,13 @@ class DetailViewController: UIViewController {
         var detailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/4))
         detailLabel.textAlignment = NSTextAlignment.Center
         detailLabel.center = self.view.center
+        detailLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth |
+                                       UIViewAutoresizing.FlexibleHeight |
+                                       UIViewAutoresizing.FlexibleTopMargin |
+                                       UIViewAutoresizing.FlexibleBottomMargin |
+                                       UIViewAutoresizing.FlexibleLeftMargin |
+                                       UIViewAutoresizing.FlexibleRightMargin
+        
         var personDescription = "First: \(self.person.firstName) Last: \(self.person.lastName)"
         if let personAge = self.person.age {
             personDescription += " Age: \(personAge)"

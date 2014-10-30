@@ -8,8 +8,8 @@
 
 import UIKit
 
-public class ViewControllerDataSource: NSObject, UITableViewDataSource {
-    public weak var dataTableView: UITableView!
+class ViewControllerDataSource: NSObject, UITableViewDataSource {
+    weak var dataTableView: UITableView!
     private let dataArray: NSMutableArray!
     
     private let firstNames = ["Jay", "Qing", "Clayton", "Rob", "Jill"]
@@ -28,21 +28,21 @@ public class ViewControllerDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    public func dataForIndexPath(indexPath: NSIndexPath) -> PersonModel! {
+    func dataForIndexPath(indexPath: NSIndexPath) -> PersonModel! {
         return dataArray.objectAtIndex(indexPath.row) as PersonModel
     }
     
     // MARK: TableView datasource methods
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
     
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         let person = dataArray.objectAtIndex(indexPath.row) as PersonModel
         cell.textLabel.text = person.firstName
