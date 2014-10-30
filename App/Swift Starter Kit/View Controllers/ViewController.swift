@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate {
     
-    // weak properties are ALWAYS optional. Here, we're setting it to be implicitly unwrapped because 1) we know it'll be given a value in loadView and 2) so we don't have to unwrap it everytime we perform an operation on it
+    // weak properties are ALWAYS optional (and it's best practice to make UI elements weak). 
+    // Here, we're setting it to be implicitly unwrapped because 1) we know it'll be given a value in loadView and 2) so we don't have to unwrap it everytime we perform an operation on it
     weak var classTableView: UITableView!
     
     // This is NOT optional because we need this to populate the tableview being displayed.
