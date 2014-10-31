@@ -46,7 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         self.classTableView = classTableView // the weak property, classTableView, doesn't get deallocated because the view is referencing the local variable classTableView
     }
     
-    // Comment out these methods if necessary. For code cleanliness, we omit code we do not need/use
+//    Comment out these methods if necessary. For code cleanliness, we omit code we do not need/use
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        // Do any additional setup after loading the view, typically from a nib.
