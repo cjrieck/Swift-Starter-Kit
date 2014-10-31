@@ -34,26 +34,17 @@ class PersonModel {
     
     func walkForward(direction: WalkingDirection) {
         switch direction {
-        case .Forwards:
-            println("Walked forwards")
-            break
+            case .Forwards:
+                println("Walked forwards")
             
-        case .Backwards:
-            println("Walked forwards")
-            break
-
-        case .Left:
-            println("Walked forwards")
-            break
+            case .Backwards:
+                println("Walked forwards")
             
-        case .Right:
-            println("Walked forwards")
-            break
+            case .Left:
+                println("Walked forwards")
             
-        default:
-            // shouldn't ever get in here since function takes in a WalkingDirection
-            println("Something went wrong...")
-            break
+            case .Right:
+                println("Walked forwards")
         }
     }
 }

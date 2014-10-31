@@ -25,7 +25,7 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
             var firstN = self.firstNames[self.getRandomNumberInRange(0, upperBound: self.firstNames.count - 1)]
             var lastN = self.lastNames[self.getRandomNumberInRange(0, upperBound: self.lastNames.count - 1)]
             var person = PersonModel(firstName: firstN, lastName: lastN, age: self.getRandomNumberInRange(1, upperBound: 100))
-            dataArray.append(person)
+            dataArray.append(person) // this shows clear intent. In Swift, short-hand for appending to an array is by using the += operator like so: dataArray += person
         }
     }
     
