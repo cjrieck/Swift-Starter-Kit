@@ -13,13 +13,11 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
     
     // By default, classes and properties are internal (entities are available to the entire module that includes the definition)
     // We want to hide implementation details from other developers which is why we create private properties and methods (entities are available only from within the source file where they are defined)
-    private let dataArray: NSMutableArray
+    private var dataArray: [PersonModel] = [] // must explicitly define type here or else array will be initialized with type 'AnyObject' and we want to avoid downcasting
     private let firstNames = ["Jay", "Qing", "Clayton", "Rob", "Jill"]
     private let lastNames = ["Smith", "Johnson", "Dixie", "O'Neill", "Wunderlich"]
     
     override init() {
-        dataArray = NSMutableArray()
-        
         super.init()
         
         // initialization of data
@@ -27,7 +25,7 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
             var firstN = self.firstNames[self.getRandomNumberInRange(0, upperBound: self.firstNames.count - 1)]
             var lastN = self.lastNames[self.getRandomNumberInRange(0, upperBound: self.lastNames.count - 1)]
             var person = PersonModel(firstName: firstN, lastName: lastN, age: self.getRandomNumberInRange(1, upperBound: 100))
-            dataArray.addObject(person)
+            dataArray.append(person)
         }
     }
     
@@ -38,7 +36,7 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
     // they have to go and change all of the calls to this method to support a row Int and a section Int. OR you can just write the method to accept an NSIndexPath which contains the section
     // and row for you
     func dataForIndexPath(indexPath: NSIndexPath) -> PersonModel! {
-        return dataArray.objectAtIndex(indexPath.row) as PersonModel
+        return dataArray[indexPath.row]
     }
     
     // MARK: TableView datasource methods
@@ -53,7 +51,7 @@ class ViewControllerDataSource: NSObject, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        let person = dataArray.objectAtIndex(indexPath.row) as PersonModel // type cast since objectAtIndex returns type 'AnyObject'
+        let person = dataArray[indexPath.row]
         cell.textLabel.text = person.firstName
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         return cell;
