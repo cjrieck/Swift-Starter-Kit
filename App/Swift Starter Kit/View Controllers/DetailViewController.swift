@@ -27,15 +27,10 @@ class DetailViewController: UIViewController {
         let viewWidth = CGRectGetWidth(self.view.frame)
         let viewHeight = CGRectGetHeight(self.view.frame)
         var detailLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight/4))
-        detailLabel.textAlignment = NSTextAlignment.Center
+        detailLabel.textAlignment = .Center
         detailLabel.center = self.view.center
         // w00t for autolayout!! This makes sure the label is always centered no matter what orientation
-        detailLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth |
-                                       UIViewAutoresizing.FlexibleHeight |
-                                       UIViewAutoresizing.FlexibleTopMargin |
-                                       UIViewAutoresizing.FlexibleBottomMargin |
-                                       UIViewAutoresizing.FlexibleLeftMargin |
-                                       UIViewAutoresizing.FlexibleRightMargin
+        detailLabel.autoresizingMask = .FlexibleWidth | .FlexibleHeight | .FlexibleTopMargin | .FlexibleBottomMargin | .FlexibleLeftMargin | .FlexibleRightMargin
         
         var personDescription = "First: \(self.person.firstName) Last: \(self.person.lastName)"
         if let personAge = self.person.age { // proper way to unwrap an optional. Remember, 'age' is optional on PersonModel so we HAVE to make this check
