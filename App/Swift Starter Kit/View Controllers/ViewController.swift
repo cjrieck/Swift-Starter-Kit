@@ -42,11 +42,12 @@ class ViewController: UIViewController, UITableViewDelegate {
         classTableView.delegate = self
         classTableViewDataSource.dataTableView = classTableView
         classTableView.dataSource = classTableViewDataSource
-        self.view.addSubview(classTableView) // the view is now retaining this tableview
-        self.classTableView = classTableView // the weak property, classTableView, doesn't get deallocated because the view is referencing the local variable classTableView
+        self.view.addSubview(classTableView) // the view is now retaining this tableview for its (the view's) lifetime
+        self.classTableView = classTableView // the weak property, classTableView, doesn't get deallocated because the view is referencing the local variable classTableView which is storng in this scope
     }
     
 //    Comment out these methods if necessary. For code cleanliness, we omit code we do not need/use
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        // Do any additional setup after loading the view, typically from a nib.
