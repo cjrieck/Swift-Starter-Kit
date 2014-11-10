@@ -1,0 +1,8 @@
+language: swift
+xcode_project: App/Swift\ Starter\ Kit.xcodeproj.xcodeproj
+xcode_scheme: Swift Starter Kit
+xcode_sdk: iphonesimulator
+
+before_install:
+    - brew update
+    - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
